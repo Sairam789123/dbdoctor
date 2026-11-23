@@ -1,0 +1,4 @@
+node_modules/
+.env
+*.log
+dbdoctor-report.json

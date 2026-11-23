@@ -1,4 +1,3 @@
-
 # DBDoctor 🩺
 
 **A CLI tool to diagnose, repair, and audit PostgreSQL and MongoDB databases.**
@@ -49,16 +48,34 @@ DBDoctor helps developers identify common database connection problems, safely r
 
 ## Requirements
 
-- Node.js and npm
-- PostgreSQL server
-- MongoDB server
+- Node.js 22.12.0 or newer
+- npm
+- PostgreSQL server (for PostgreSQL checks)
+- MongoDB server (for MongoDB checks)
+
 
 ## Installation
+
+### Install from npm
+
+Install DBDoctor globally:
+
+```bash
+npm install -g @sairam789152615/dbdoctor
+```
+
+Verify the installation:
+
+```bash
+dbdoctor --version
+```
+
+### Install from source (Development)
 
 Clone the repository:
 
 ```bash
-git clone <your-github-repository-url>
+git clone https://github.com/Sairam789123/dbdoctor.git
 ```
 
 Navigate into the project:
@@ -73,11 +90,12 @@ Install dependencies:
 npm install
 ```
 
-For local development, link the CLI globally:
+Link the CLI globally for local development:
 
 ```bash
 npm link
 ```
+
 
 ## Configuration
 
@@ -176,8 +194,7 @@ dbdoctor/
 │   │   └── mongodbAudit.js
 │   │
 │   ├── utils/
-│   │   ├── diagnoseError.js
-│   │   └── logger.js
+│   │   └── diagnoseError.js
 │   │
 │   └── index.js
 │
@@ -189,7 +206,10 @@ dbdoctor/
 │
 ├── .env.example
 ├── .gitignore
+├── .npmignore
+├── LICENSE
 ├── package.json
+├── package-lock.json
 └── README.md
 ```
 
@@ -205,3 +225,10 @@ DBDoctor follows a cautious approach to configuration repairs:
 ## License
 
 ISC License.
+
+## Current Limitations
+
+- Database checks require the respective database servers to be running.
+- Security audit results depend on the permissions of the connected database user.
+- Configuration repair currently focuses on `.env` protection through `.gitignore`.
+- Audit findings provide recommendations and do not automatically change database settings.
